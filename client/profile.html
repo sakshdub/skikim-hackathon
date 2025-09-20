@@ -1,0 +1,23 @@
+<main class="container my-5 pt-5">
+    <h2 class="mb-4">Welcome, [Username]!</h2>
+    <h4>Upload Your Sikkim Memories</h4>
+    <div class="card">
+        <div class="card-body">
+            <form id="upload-form" action="/upload-handler" method="post" enctype="multipart/form-data">
+                <div class="mb-3">
+                    <label for="media-title" class="form-label">Title</label>
+                    <input type="text" class="form-control" id="media-title" placeholder="e.g., Sunset at Pelling" required>
+                </div>
+                <div class="mb-3">
+                    <label for="media-file" class="form-label">Select Photo or Video</label>
+                    <input class="form-control" type="file" id="media-file" accept="image/*,video/*" required>
+                </div>
+                <div class="mb-3">
+                    <label for="media-description" class="form-label">Description</label>
+                    <textarea class="form-control" id="media-description" rows="3"></textarea>
+                </div>
+                <button type="submit" class="btn btn-success">Upload Media</button>
+            </form>
+        </div>
+    </div>
+</main>
