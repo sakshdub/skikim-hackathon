@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Culture & Spirituality of Sikkim - A Spiritual Tapestry</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-color: #0d6efd;
+            --secondary-color: #f8f9fa;
+            --text-color: #343a40;
+            --dark-bg: #212529;
+            --heading-font: 'Playfair Display', serif;
+            --body-font: 'Poppins', sans-serif;
+        }
+
+        body {
+            font-family: var(--body-font);
+            color: var(--text-color);
+            background-color: var(--secondary-color);
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--heading-font);
+            font-weight: 700;
+        }
+        
+        /* --- Navigation Bar --- */
+        .navbar {
+            background-color: var(--dark-bg) !important;
+        }
+
+        /* --- Page Header --- */
+        .page-header {
+            height: 70vh;
+            background: url('assets/images/Festival-Sikkim.jpg') no-repeat center center;
+            background-size: cover;
+            background-attachment: fixed;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+        }
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+        .header-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* --- Section Styling --- */
+        .section {
+            padding: 80px 0;
+        }
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 60px;
+            text-align: center;
+            position: relative;
+        }
+        .section-title::after {
+            content: '';
+            width: 80px;
+            height: 3px;
+            background: var(--primary-color);
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        /* --- Pillars of Culture Section --- */
+        .pillar-card {
+            text-align: center;
+            padding: 2rem;
+        }
+        .pillar-card .icon {
+            font-size: 3rem;
+            color: var(--primary-color);
+        }
+
+        /* --- Culture Content Card --- */
+        .culture-card {
+            background-color: #fff;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            overflow: hidden;
+        }
+        .culture-img {
+            min-height: 400px;
+            background-size: cover;
+            background-position: center;
+            transition: transform 0.5s ease;
+        }
+        .culture-card:hover .culture-img {
+            transform: scale(1.05);
+        }
+        .culture-content {
+            padding: 2.5rem;
+        }
+        .site-img-1 { background-image: url('assets/images/Vajrayana.jpg'); }
+        .site-img-2 { background-image: url('assets/images/A Melting Pot of Cultures.jpg'); }
+        .site-img-3 { background-image: url('assets/images/Festivals of Color and Faith.jpg'); }
+        .site-img-4 { background-image: url('assets/images/Rich Artistic Heritage.jpg'); }
+
+        /* --- Booking Form --- */
+        .booking-form {
+            background-color: #fff;
+            border-radius: 15px;
+            padding: 2.5rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        /* --- Scroll Animations --- */
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .scroll-reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- Footer --- */
+        .footer {
+            background-color: var(--dark-bg);
+            color: rgba(255, 255, 255, 0.7);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Sikkim Tourism</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                 <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="destinations.html">Destinations</a></li>
+                    <li class="nav-item"><a class="nav-link" href="monasteries.html">Monasteries</a></li>
+                    <li class="nav-item"><a class="nav-link" href="experience.html">Experience</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="page-header">
+        <div class="overlay"></div>
+        <div class="header-content">
+            <h1 class="display-4">Culture & Spirituality of Sikkim</h1>
+            <p class="lead">A vibrant tapestry of traditions, beliefs, and artistic expressions.</p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Pillars Section -->
+        <section class="section">
+            <div class="container">
+                <div class="row text-center">
+                    <div class="col-lg-4 scroll-reveal">
+                        <div class="pillar-card">
+                            <div class="icon"><i class="bi bi-peace-fill"></i></div>
+                            <h4 class="mt-3">Vajrayana Buddhism</h4>
+                            <p>The cornerstone of Sikkimese identity, influencing everything from art and festivals to daily life.</p>
+                        </div>
+                    </div>
+                     <div class="col-lg-4 scroll-reveal">
+                        <div class="pillar-card">
+                            <div class="icon"><i class="bi bi-people-fill"></i></div>
+                            <h4 class="mt-3">Ethnic Diversity</h4>
+                            <p>A harmonious blend of Lepcha, Bhutia, and Nepali communities, each with unique traditions.</p>
+                        </div>
+                    </div>
+                     <div class="col-lg-4 scroll-reveal">
+                        <div class="pillar-card">
+                            <div class="icon"><i class="bi bi-brightness-high-fill"></i></div>
+                            <h4 class="mt-3">Vibrant Festivals</h4>
+                            <p>A calendar full of colorful celebrations, mask dances, and sacred ceremonies throughout the year.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section bg-light">
+            <div class="container">
+                 <!-- Buddhism -->
+                <div class="culture-card mb-5 scroll-reveal">
+                    <div class="row g-0">
+                        <div class="col-lg-6">
+                            <div class="culture-img site-img-1"></div>
+                        </div>
+                        <div class="col-lg-6 d-flex align-items-center">
+                            <div class="culture-content">
+                                <h3>The Influence of Spirituality</h3>
+                                <p class="text-muted">Vajrayana Buddhism is the heart of Sikkim's spiritual life. Introduced by the patron saint Guru Padmasambhava, its presence is felt everywhere, from the prayer flags fluttering on mountain passes to the magnificent monasteries that serve as centers of learning and worship. This spiritual path shapes the state's peaceful ethos and its reverence for nature.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ethnic Diversity -->
+                <div class="culture-card mb-5 scroll-reveal">
+                    <div class="row g-0">
+                        <div class="col-lg-6 d-flex align-items-center order-lg-2">
+                             <div class="culture-content">
+                                <h3>A Melting Pot of Cultures</h3>
+                                <p class="text-muted">Sikkim is a beautiful example of cultural harmony. The indigenous Lepchas, the Bhutias of Tibetan ancestry, and the Nepalis have coexisted for centuries, creating a unique cultural blend. This diversity is reflected in the languages, cuisines, attire, and customs found throughout the state.</p>
+                            </div>
+                        </div>
+                         <div class="col-lg-6 order-lg-1">
+                            <div class="culture-img site-img-2"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                 <!-- Festivals -->
+                <div class="culture-card mb-5 scroll-reveal">
+                    <div class="row g-0">
+                        <div class="col-lg-6">
+                            <div class="culture-img site-img-3"></div>
+                        </div>
+                        <div class="col-lg-6 d-flex align-items-center">
+                            <div class="culture-content">
+                                <h3>Festivals of Color and Faith</h3>
+                                <p class="text-muted">Sikkim's festivals are spectacular displays of faith and tradition. Major events include Losar (the Tibetan New Year), Saga Dawa (celebrating Buddha's birth, enlightenment, and death), and the vibrant mask dances (Chaams) held at monasteries like Rumtek and Enchey, which ward off evil spirits and depict moral tales.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Arts & Crafts -->
+                 <div class="culture-card mb-5 scroll-reveal">
+                    <div class="row g-0">
+                        <div class="col-lg-6 d-flex align-items-center order-lg-2">
+                             <div class="culture-content">
+                                <h3>Rich Artistic Heritage</h3>
+                                <p class="text-muted">Sikkimese art is deeply rooted in its spiritual traditions. This is evident in the intricate Thangka paintings (Buddhist scroll paintings), ornate wood carvings found in monasteries, hand-woven carpets, and the traditional Choktse tables. These crafts are not just decorative but are living traditions passed down through generations.</p>
+                            </div>
+                        </div>
+                         <div class="col-lg-6 order-lg-1">
+                            <div class="culture-img site-img-4"></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Booking Form Section -->
+        <section class="section">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="booking-form scroll-reveal">
+                             <h2 class="section-title">Experience Sikkimese Culture</h2>
+                             <form id="booking-form">
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="name" class="form-label">Full Name</label>
+                                        <input type="text" class="form-control" id="name" required>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="email" class="form-label">Email Address</label>
+                                        <input type="email" class="form-control" id="email" required>
+                                    </div>
+                                </div>
+                                 <div class="mb-3">
+                                    <label for="interest" class="form-label">Area of Interest</label>
+                                    <select class="form-select" id="interest">
+                                        <option selected>Select an interest...</option>
+                                        <option>Cultural Tours</option>
+                                        <option>Festival Packages</option>
+                                        <option>Village Homestays</option>
+                                        <option>Arts & Crafts Workshops</option>
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="message" class="form-label">Your Message</label>
+                                    <textarea class="form-control" id="message" rows="4"></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary w-100">Send Inquiry</button>
+                             </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer pt-5 pb-4">
+        <div class="container text-center">
+            <p>© 2025 All Rights Reserved. Tourism and Civil Aviation Department, Government of Sikkim.</p>
+        </div>
+    </footer>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // --- Scroll Reveal Animation ---
+            const revealElements = document.querySelectorAll('.scroll-reveal');
+            const revealOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
+            const revealOnScroll = new IntersectionObserver(function(entries, observer) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, revealOptions);
+            revealElements.forEach(element => {
+                revealOnScroll.observe(element);
+            });
+
+            // --- Booking Form ---
+            const bookingForm = document.getElementById('booking-form');
+            if(bookingForm) {
+                bookingForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    alert('Thank you for your interest! Our team will contact you shortly. (Frontend Demo)');
+                    bookingForm.reset();
+                });
+            }
+        });
+    </script>
+</body>
+</html>
+

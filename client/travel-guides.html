@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Guides & Agents - Sikkim Tourism</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-color: #0d6efd;
+            --secondary-color: #f8f9fa;
+            --text-color: #343a40;
+            --dark-bg: #212529;
+            --heading-font: 'Playfair Display', serif;
+            --body-font: 'Poppins', sans-serif;
+        }
+
+        body {
+            font-family: var(--body-font);
+            color: var(--text-color);
+            background-color: var(--secondary-color);
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--heading-font);
+            font-weight: 700;
+        }
+        
+        /* --- Navigation Bar --- */
+        .navbar {
+            background-color: var(--dark-bg) !important;
+        }
+
+        /* --- Page Header --- */
+        .page-header {
+            height: 70vh;
+            background: url('assets/images/travelagentt.avif') no-repeat center center;
+            background-size: cover;
+            background-attachment: fixed;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+        }
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+        .header-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* --- Section Styling --- */
+        .section {
+            padding: 80px 0;
+        }
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 60px;
+            text-align: center;
+            position: relative;
+        }
+        .section-title::after {
+            content: '';
+            width: 80px;
+            height: 3px;
+            background: var(--primary-color);
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        /* --- Travel Agent Card --- */
+        .agent-card {
+            background-color: #fff;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            text-align: center;
+            padding: 2rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        .agent-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+        }
+        .agent-card .agent-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--primary-color);
+            margin-bottom: 1rem;
+            align-self: center;
+        }
+        .agent-card .specialization {
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+        .agent-card .card-content {
+            flex-grow: 1;
+        }
+        .agent-card .btn {
+            margin-top: auto;
+        }
+
+        /* --- Why Choose Local Section --- */
+        .benefit-card {
+            text-align: center;
+        }
+        .benefit-card .icon {
+            font-size: 3rem;
+            color: var(--primary-color);
+        }
+
+        /* --- Popular Tours Section --- */
+        .tour-card {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            color: white;
+            position: relative;
+            height: 350px;
+        }
+        .tour-card-img {
+            height: 100%;
+            width: 100%;
+            background-size: cover;
+            background-position: center;
+            transition: transform 0.4s ease;
+        }
+        .tour-card:hover .tour-card-img {
+            transform: scale(1.1);
+        }
+        .tour-card-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 1.5rem;
+            background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+        }
+
+        /* --- Scroll Animations --- */
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .scroll-reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- Footer --- */
+        .footer {
+            background-color: var(--dark-bg);
+            color: rgba(255, 255, 255, 0.7);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Sikkim Tourism</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                 <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="destinations.html">Destinations</a></li>
+                    <li class="nav-item"><a class="nav-link" href="things-to-do.html">Things to Do</a></li>
+                    <li class="nav-item"><a class="nav-link" href="experience.html">Experience</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="travel-guides.html">Travel Guides</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="page-header">
+        <div class="overlay"></div>
+        <div class="header-content">
+            <h1 class="display-4">Local Travel Guides & Agents</h1>
+            <p class="lead">Connect with local experts to plan your perfect Sikkim adventure.</p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Find an Expert Section -->
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title">Find Your Local Expert</h2>
+                <div class="row">
+                    <!-- Agent 1 -->
+                    <div class="col-lg-4 col-md-6 mb-4 scroll-reveal">
+                        <div class="agent-card">
+                            <img src="https://placehold.co/120x120/EFEFEF/333?text=TS" alt="Travel Agent Tenzing" class="agent-img">
+                            <div class="card-content">
+                                <h4>Tenzing Sherpa</h4>
+                                <p class="specialization">Adventure & Trekking Specialist</p>
+                                <p class="text-muted small">With over 15 years of experience leading treks to Goecha La and beyond, I ensure a safe and unforgettable high-altitude adventure.</p>
+                            </div>
+                            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#inquiryModal" data-agent-name="Tenzing Sherpa">View Packages & Inquire</button>
+                        </div>
+                    </div>
+                    <!-- Agent 2 -->
+                    <div class="col-lg-4 col-md-6 mb-4 scroll-reveal">
+                        <div class="agent-card">
+                            <img src="https://placehold.co/120x120/EFEFEF/333?text=PR" alt="Travel Agent Priya" class="agent-img">
+                             <div class="card-content">
+                                <h4>Priya Rai</h4>
+                                <p class="specialization">Cultural & Spiritual Tours</p>
+                                <p class="text-muted small">I specialize in creating immersive cultural tours, connecting you with the heart of Sikkim through its monasteries, festivals, and local life.</p>
+                            </div>
+                            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#inquiryModal" data-agent-name="Priya Rai">View Packages & Inquire</button>
+                        </div>
+                    </div>
+                    <!-- Agent 3 -->
+                    <div class="col-lg-4 col-md-6 mb-4 scroll-reveal">
+                         <div class="agent-card">
+                            <img src="https://placehold.co/120x120/EFEFEF/333?text=BC" alt="Travel Agent Bikram" class="agent-img">
+                             <div class="card-content">
+                                <h4>Bikram Chettri</h4>
+                                <p class="specialization">Family & Leisure Trips</p>
+                                <p class="text-muted small">Planning a family vacation? I design comfortable and engaging itineraries that cater to all ages, ensuring a memorable holiday for everyone.</p>
+                            </div>
+                            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#inquiryModal" data-agent-name="Bikram Chettri">View Packages & Inquire</button>
+                        </div>
+                    </div>
+                     <!-- Agent 4 -->
+                    <div class="col-lg-4 col-md-6 mb-4 scroll-reveal">
+                        <div class="agent-card">
+                            <img src="https://placehold.co/120x120/EFEFEF/333?text=AL" alt="Travel Agent Anjali" class="agent-img">
+                            <div class="card-content">
+                                <h4>Anjali Lepcha</h4>
+                                <p class="specialization">Wildlife & Nature Tours</p>
+                                <p class="text-muted small">A passionate naturalist, I guide you through Sikkim's rich biodiversity, helping you spot rare birds, orchids, and maybe even the Red Panda.</p>
+                            </div>
+                            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#inquiryModal" data-agent-name="Anjali Lepcha">View Packages & Inquire</button>
+                        </div>
+                    </div>
+                    <!-- Agent 5 -->
+                    <div class="col-lg-4 col-md-6 mb-4 scroll-reveal">
+                        <div class="agent-card">
+                            <img src="https://placehold.co/120x120/EFEFEF/333?text=RG" alt="Travel Agent Rohan" class="agent-img">
+                             <div class="card-content">
+                                <h4>Rohan Gurung</h4>
+                                <p class="specialization">Motorbiking & Offbeat Routes</p>
+                                <p class="text-muted small">For the thrill-seekers, I organize epic motorbike tours across Sikkim, covering high-altitude passes and roads less traveled.</p>
+                            </div>
+                            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#inquiryModal" data-agent-name="Rohan Gurung">View Packages & Inquire</button>
+                        </div>
+                    </div>
+                    <!-- Agent 6 -->
+                    <div class="col-lg-4 col-md-6 mb-4 scroll-reveal">
+                         <div class="agent-card">
+                            <img src="https://placehold.co/120x120/EFEFEF/333?text=SL" alt="Travel Agent Sonam" class="agent-img">
+                             <div class="card-content">
+                                <h4>Sonam Lhamu</h4>
+                                <p class="specialization">Luxury & Wellness Retreats</p>
+                                <p class="text-muted small">Experience Sikkim in style. I curate bespoke luxury tours, focusing on high-end resorts, spa treatments, and exclusive experiences.</p>
+                            </div>
+                            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#inquiryModal" data-agent-name="Sonam Lhamu">View Packages & Inquire</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Choose Local Section -->
+        <section class="section bg-light">
+            <div class="container">
+                <h2 class="section-title">Why Choose a Local Guide?</h2>
+                <div class="row">
+                    <div class="col-lg-4 scroll-reveal">
+                        <div class="benefit-card">
+                            <div class="icon"><i class="bi bi-compass-fill"></i></div>
+                            <h4 class="mt-3">Unmatched Expertise</h4>
+                            <p>Local guides offer deep insights into the culture, history, weather patterns, and hidden gems that you won't find in any guidebook. They bring the stories of Sikkim to life.</p>
+                        </div>
+                    </div>
+                     <div class="col-lg-4 scroll-reveal">
+                        <div class="benefit-card">
+                            <div class="icon"><i class="bi bi-shield-check"></i></div>
+                            <h4 class="mt-3">Safety & Reliability</h4>
+                            <p>Our registered agents are experienced professionals who understand the terrain and logistics. They handle all permits and arrangements, ensuring your travel is safe and hassle-free.</p>
+                        </div>
+                    </div>
+                     <div class="col-lg-4 scroll-reveal">
+                        <div class="benefit-card">
+                            <div class="icon"><i class="bi bi-heart-fill"></i></div>
+                            <h4 class="mt-3">Authentic Experiences</h4>
+                            <p>Connect with the local community in a meaningful way. A local guide can introduce you to authentic cuisine, village life, and cultural nuances for a truly immersive experience.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Popular Tour Styles Section -->
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title">Popular Tour Styles</h2>
+                <div class="row">
+                    <div class="col-lg-4 col-md-6 mb-4 scroll-reveal">
+                        <div class="tour-card">
+                            <div class="tour-card-img" style="background-image: url('assets/images/Monastery Circuit.webp');"></div>
+                            <div class="tour-card-content">
+                                <h5>Monastery Circuit</h5>
+                                <p class="small">Explore the serene and ancient monasteries of Rumtek, Pemayangtse, and more.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 mb-4 scroll-reveal">
+                        <div class="tour-card">
+                            <div class="tour-card-img" style="background-image: url('assets/images/Adventure Trekking.webp');"></div>
+                            <div class="tour-card-content">
+                                <h5>Adventure Trekking</h5>
+                                <p class="small">Conquer breathtaking trails like Goecha La and Dzongri for stunning Himalayan views.</p>
+                            </div>
+                        </div>
+                    </div>
+                     <div class="col-lg-4 col-md-6 mb-4 scroll-reveal">
+                        <div class="tour-card">
+                            <div class="tour-card-img" style="background-image: url('assets/images/Family Holidays.jpg');"></div>
+                            <div class="tour-card-content">
+                                <h5>Family Holidays</h5>
+                                <p class="small">Enjoy comfortable stays and sightseeing in Gangtok, Pelling, and Namchi.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer pt-5 pb-4">
+        <div class="container text-center">
+            <p>© 2025 All Rights Reserved. Tourism and Civil Aviation Department, Government of Sikkim.</p>
+        </div>
+    </footer>
+
+    <!-- Inquiry Modal -->
+    <div class="modal fade" id="inquiryModal" tabindex="-1" aria-labelledby="inquiryModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="inquiryModalLabel">Contact <span id="modalAgentName"></span></h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <p>Fill out the form below to inquire about packages or request a custom tour.</p>
+            <form id="inquiry-form">
+              <input type="hidden" id="agentNameInput" name="agentName">
+              <div class="mb-3">
+                  <label for="fullName" class="form-label">Full Name</label>
+                  <input type="text" class="form-control" id="fullName" required>
+              </div>
+              <div class="mb-3">
+                  <label for="contactEmail" class="form-label">Email Address</label>
+                  <input type="email" class="form-control" id="contactEmail" required>
+              </div>
+              <div class="row">
+                <div class="col-md-6 mb-3">
+                  <label for="travelDate" class="form-label">Approx. Travel Date</label>
+                  <input type="date" class="form-control" id="travelDate" required>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="numTravelers" class="form-label">No. of Travelers</label>
+                    <input type="number" class="form-control" id="numTravelers" value="1" min="1" required>
+                </div>
+              </div>
+              <div class="mb-3">
+                  <label for="message" class="form-label">Your Message</label>
+                  <textarea class="form-control" id="message" rows="4" placeholder="Tell us about your interests, desired activities, and any specific requirements." required></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary w-100">Send Inquiry</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // --- Scroll Reveal Animation ---
+            const revealElements = document.querySelectorAll('.scroll-reveal');
+            const revealOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
+            const revealOnScroll = new IntersectionObserver(function(entries, observer) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, revealOptions);
+            revealElements.forEach(element => {
+                revealOnScroll.observe(element);
+            });
+
+             // --- Inquiry Modal Logic ---
+            const inquiryModal = document.getElementById('inquiryModal');
+            if (inquiryModal) {
+                const modalAgentName = document.getElementById('modalAgentName');
+                const agentNameInput = document.getElementById('agentNameInput');
+
+                inquiryModal.addEventListener('show.bs.modal', function (event) {
+                    const button = event.relatedTarget;
+                    const agentName = button.getAttribute('data-agent-.name');
+                    
+                    modalAgentName.textContent = agentName;
+                    agentNameInput.value = agentName;
+                });
+
+                const inquiryForm = document.getElementById('inquiry-form');
+                inquiryForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    alert(`Your inquiry for ${agentNameInput.value} has been sent! They will contact you shortly. (Frontend Demo)`);
+                    const modalInstance = bootstrap.Modal.getInstance(inquiryModal);
+                    modalInstance.hide();
+                    inquiryForm.reset();
+                });
+            }
+        });
+    </script>
+</body>
+</html>
+

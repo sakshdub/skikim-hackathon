@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accommodations - Sikkim Tourism</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <style>
+        :root {
+            --primary-color: #0d6efd;
+            --secondary-color: #f8f9fa;
+            --text-color: #343a40;
+            --dark-bg: #212529;
+        }
+
+        body {
+            background-color: var(--secondary-color);
+        }
+
+        .page-header {
+            background-size: cover;
+            background-position: center;
+            padding: 80px 0;
+        }
+
+        .filter-sidebar {
+            background-color: #fff;
+            padding: 1.5rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        }
+        
+        .accommodation-link {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .accommodation-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        }
+        .accommodation-link:hover .accommodation-card {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .accommodation-card .card-img {
+            object-fit: cover;
+            height: 100%;
+            min-height: 220px;
+            border-radius: 15px 0 0 15px;
+        }
+        
+        @media (max-width: 767px) {
+            .accommodation-card .card-img {
+                 border-radius: 15px 15px 0 0;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Sikkim Tourism</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="destinations.html">Destinations</a></li>
+                    <li class="nav-item"><a class="nav-link" href="things-to-do.html">Things to Do</a></li>
+                    <li class="nav-item"><a class="nav-link" href="experience.html">Experience Sikkim</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="accommodations.html">Accommodations</a></li>
+                    <li class="nav-item"><a class="nav-link" href="traveller-essentials.html">Travel Info</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="page-header text-center text-white py-5" style="background-image: url('https://images.unsplash.com/photo-1566073771259-6a8s506099945?q=80&w=1920&h=1080&fit=crop'); margin-top: 56px;">
+        <div class="container" style="background-color: rgba(0,0,0,0.5); padding: 2rem; border-radius: 10px;">
+            <h1>Accommodations</h1>
+            <p class="lead">Find government compliant and safe places to stay across Sikkim.</p>
+        </div>
+    </header>
+
+    <main class="container my-5">
+        <div class="row">
+            <!-- Filter Sidebar -->
+            <aside class="col-lg-4 mb-4">
+                <div class="filter-sidebar sticky-top" style="top: 80px;">
+                    <h3 class="mb-4">Search & Filters</h3>
+                    
+                    <!-- District Filter -->
+                    <h5>District</h5>
+                    <div class="form-check"><input class="form-check-input filter-checkbox" type="checkbox" value="east" id="east-district"><label class="form-check-label" for="east-district">East (Gangtok)</label></div>
+                    <div class="form-check"><input class="form-check-input filter-checkbox" type="checkbox" value="west" id="west-district"><label class="form-check-label" for="west-district">West (Geyzing)</label></div>
+                    <div class="form-check"><input class="form-check-input filter-checkbox" type="checkbox" value="south" id="south-district"><label class="form-check-label" for="south-district">South (Namchi)</label></div>
+                    <div class="form-check"><input class="form-check-input filter-checkbox" type="checkbox" value="north" id="north-district"><label class="form-check-label" for="north-district">North (Mangan)</label></div>
+                    <div class="form-check"><input class="form-check-input filter-checkbox" type="checkbox" value="pakyong" id="pakyong-district"><label class="form-check-label" for="pakyong-district">Pakyong</label></div>
+                    <div class="form-check"><input class="form-check-input filter-checkbox" type="checkbox" value="soreng" id="soreng-district"><label class="form-check-label" for="soreng-district">Soreng</label></div>
+
+                    <hr>
+
+                    <!-- Property Type Filter -->
+                    <h5>Property Type</h5>
+                    <div class="form-check"><input class="form-check-input filter-checkbox" type="checkbox" value="hotel" id="hotel-type"><label class="form-check-label" for="hotel-type">Hotel</label></div>
+                    <div class="form-check"><input class="form-check-input filter-checkbox" type="checkbox" value="lodge" id="lodge-type"><label class="form-check-label" for="lodge-type">Lodge / Guest house</label></div>
+                    <div class="form-check"><input class="form-check-input filter-checkbox" type="checkbox" value="homestay" id="homestay-type"><label class="form-check-label" for="homestay-type">Homestay</label></div>
+                    <div class="form-check"><input class="form-check-input filter-checkbox" type="checkbox" value="resort" id="resort-type"><label class="form-check-label" for="resort-type">Resort & Spa</label></div>
+                    <div class="form-check"><input class="form-check-input filter-checkbox" type="checkbox" value="bnb" id="bnb-type"><label class="form-check-label" for="bnb-type">Bed & Breakfast</label></div>
+
+                    <hr>
+                    
+                    <div class="mt-4 p-3 bg-warning-subtle rounded">
+                        <h6>Important Information</h6>
+                        <p class="small mb-0">Please verify all details with the service providers before booking. Ensure they are compliant with the latest government health & safety guidelines.</p>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Accommodations List -->
+            <div class="col-lg-8" id="accommodations-list">
+                <!-- AAMO HOMSTAY -->
+                <a href="#" class="accommodation-link" data-bs-toggle="modal" data-bs-target="#bookingModal" data-hotel-name="AAMO HOMSTAY">
+                    <div class="card accommodation-card mb-4" data-district="pakyong" data-type="homestay">
+                        <div class="row g-0">
+                            <div class="col-md-5"><img src="https://images.unsplash.com/photo-1584132967334-10e028bd69f7?q=80&w=800&h=600&fit=crop" class="card-img" alt="Cozy homestay room"></div>
+                            <div class="col-md-7">
+                                <div class="card-body d-flex flex-column h-100">
+                                    <h5 class="card-title">AAMO HOMSTAY</h5>
+                                    <p class="card-text text-muted small">Nearest Railway NJP - 168 kms | Nearest Airport - 146 kms</p>
+                                    <p class="card-text">Kumuk khola is a small village in the Eastern Himalayas, located in a serene environment perfect for a peaceful getaway.</p>
+                                    <ul class="list-unstyled mt-auto">
+                                        <li><i class="bi bi-telephone-fill text-primary"></i> 9775397602</li>
+                                        <li><i class="bi bi-envelope-fill text-primary"></i> 2mail4amt@gmail.com</li>
+                                    </ul>
+                                    <div class="d-flex gap-3 mt-2">
+                                        <span class="badge text-bg-success"><i class="bi bi-p-circle-fill"></i> Parking</span>
+                                        <span class="badge text-bg-success"><i class="bi bi-wifi"></i> Wifi</span>
+                                        <span class="badge text-bg-success"><i class="bi bi-cup-hot-fill"></i> Breakfast</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- The Di-Lac Retreat -->
+                 <a href="#" class="accommodation-link" data-bs-toggle="modal" data-bs-target="#bookingModal" data-hotel-name="The Di-Lac Retreat">
+                    <div class="card accommodation-card mb-4" data-district="east" data-type="hotel">
+                        <div class="row g-0">
+                            <div class="col-md-5"><img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?q=80&w=800&h=600&fit=crop" class="card-img" alt="Luxury hotel retreat"></div>
+                            <div class="col-md-7">
+                                <div class="card-body d-flex flex-column h-100">
+                                    <h5 class="card-title">The Di-Lac Retreat</h5>
+                                    <p class="card-text text-muted small">Gangtok, East Sikkim</p>
+                                    <p class="card-text">A premium retreat offering stunning lake views and exceptional hospitality for a memorable stay.</p>
+                                    <ul class="list-unstyled mt-auto">
+                                        <li><i class="bi bi-telephone-fill text-primary"></i> 7551006428</li>
+                                        <li><i class="bi bi-envelope-fill text-primary"></i> choden17@gmail.com</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                
+                <!-- The Himalayan Vista -->
+                 <a href="#" class="accommodation-link" data-bs-toggle="modal" data-bs-target="#bookingModal" data-hotel-name="The Himalayan Vista">
+                    <div class="card accommodation-card mb-4" data-district="east" data-type="hotel">
+                        <div class="row g-0">
+                            <div class="col-md-5"><img src="https://images.unsplash.com/photo-1564501049412-61c2a3083791?q=80&w=800&h=600&fit=crop" class="card-img" alt="Modern hotel lobby"></div>
+                            <div class="col-md-7">
+                                <div class="card-body d-flex flex-column h-100">
+                                    <h5 class="card-title">The Himalayan Vista</h5>
+                                    <p class="card-text text-muted small">M.G. Marg, Gangtok</p>
+                                    <p class="card-text">Located in the heart of the city, this modern hotel provides luxury rooms with breathtaking mountain views.</p>
+                                    <ul class="list-unstyled mt-auto">
+                                        <li><i class="bi bi-telephone-fill text-primary"></i> 8900123456</li>
+                                        <li><i class="bi bi-envelope-fill text-primary"></i> vista.himalayan@mail.com</li>
+                                    </ul>
+                                    <div class="d-flex gap-3 mt-2">
+                                        <span class="badge text-bg-success"><i class="bi bi-p-circle-fill"></i> Parking</span>
+                                        <span class="badge text-bg-success"><i class="bi bi-wifi"></i> Wifi</span>
+                                        <span class="badge text-bg-info"><i class="bi bi-water"></i> Pool</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Pelling Mountain Retreat & Spa -->
+                 <a href="#" class="accommodation-link" data-bs-toggle="modal" data-bs-target="#bookingModal" data-hotel-name="Pelling Mountain Retreat & Spa">
+                    <div class="card accommodation-card mb-4" data-district="west" data-type="resort">
+                        <div class="row g-0">
+                            <div class="col-md-5"><img src="https://images.unsplash.com/photo-1540541338287-41700207dee6?q=80&w=800&h=600&fit=crop" class="card-img" alt="Resort and Spa"></div>
+                            <div class="col-md-7">
+                                <div class="card-body d-flex flex-column h-100">
+                                    <h5 class="card-title">Pelling Mountain Retreat & Spa</h5>
+                                    <p class="card-text text-muted small">Pelling, West Sikkim</p>
+                                    <p class="card-text">Unwind and rejuvenate at our serene retreat offering wellness spa services and panoramic views of the Himalayas.</p>
+                                    <ul class="list-unstyled mt-auto">
+                                        <li><i class="bi bi-telephone-fill text-primary"></i> 9876543210</li>
+                                        <li><i class="bi bi-envelope-fill text-primary"></i> pelling.retreat@mail.com</li>
+                                    </ul>
+                                    <div class="d-flex gap-3 mt-2">
+                                        <span class="badge text-bg-info"><i class="bi bi-universal-access"></i> Spa</span>
+                                        <span class="badge text-bg-success"><i class="bi bi-cup-hot-fill"></i> Breakfast</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Yeti's Abode Lodge -->
+                 <a href="#" class="accommodation-link" data-bs-toggle="modal" data-bs-target="#bookingModal" data-hotel-name="Yeti's Abode Lodge">
+                    <div class="card accommodation-card mb-4" data-district="north" data-type="lodge">
+                        <div class="row g-0">
+                            <div class="col-md-5"><img src="https://images.unsplash.com/photo-1611892440504-42a792e24d32?q=80&w=800&h=600&fit=crop" class="card-img" alt="Cozy lodge room"></div>
+                            <div class="col-md-7">
+                                <div class="card-body d-flex flex-column h-100">
+                                    <h5 class="card-title">Yeti's Abode Lodge</h5>
+                                    <p class="card-text text-muted small">Lachung, North Sikkim</p>
+                                    <p class="card-text">A warm and budget-friendly lodge, perfect as a base for exploring the stunning landscapes of North Sikkim.</p>
+                                    <ul class="list-unstyled mt-auto">
+                                        <li><i class="bi bi-telephone-fill text-primary"></i> 7890123456</li>
+                                        <li><i class="bi bi-envelope-fill text-primary"></i> yetis.abode@mail.com</li>
+                                    </ul>
+                                     <div class="d-flex gap-3 mt-2">
+                                        <span class="badge text-bg-success"><i class="bi bi-p-circle-fill"></i> Parking</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Kanchenjunga Serenity Resort -->
+                 <a href="#" class="accommodation-link" data-bs-toggle="modal" data-bs-target="#bookingModal" data-hotel-name="Kanchenjunga Serenity Resort">
+                    <div class="card accommodation-card mb-4" data-district="south" data-type="resort">
+                        <div class="row g-0">
+                            <div class="col-md-5"><img src="https://images.unsplash.com/photo-1618773928121-c32242e63f39?q=80&w=800&h=600&fit=crop" class="card-img" alt="Luxury room with view"></div>
+                            <div class="col-md-7">
+                                <div class="card-body d-flex flex-column h-100">
+                                    <h5 class="card-title">Kanchenjunga Serenity Resort</h5>
+                                    <p class="card-text text-muted small">Ravangla, South Sikkim</p>
+                                    <p class="card-text">Experience unparalleled luxury with private balconies overlooking the majestic Kanchenjunga range.</p>
+                                    <ul class="list-unstyled mt-auto">
+                                        <li><i class="bi bi-telephone-fill text-primary"></i> 6789012345</li>
+                                        <li><i class="bi bi-envelope-fill text-primary"></i> serenity.resort@mail.com</li>
+                                    </ul>
+                                    <div class="d-flex gap-3 mt-2">
+                                         <span class="badge text-bg-success"><i class="bi bi-wifi"></i> Wifi</span>
+                                         <span class="badge text-bg-info"><i class="bi bi-water"></i> Pool</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                
+                <div id="no-results" class="text-center" style="display: none;">
+                    <p class="lead">No accommodations found matching your criteria.</p>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-dark text-white text-center p-4">
+        <p>&copy; 2025 Sikkim Tourism. All Rights Reserved.</p>
+    </footer>
+
+    <!-- Booking Modal -->
+    <div class="modal fade" id="bookingModal" tabindex="-1" aria-labelledby="bookingModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="bookingModalLabel">Book Your Stay at <span id="modalHotelName"></span></h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form id="booking-form">
+              <input type="hidden" id="hotelNameInput" name="hotelName">
+              <div class="row">
+                <div class="col-md-6 mb-3">
+                  <label for="checkInDate" class="form-label">Check-in Date</label>
+                  <input type="date" class="form-control" id="checkInDate" required>
+                </div>
+                <div class="col-md-6 mb-3">
+                  <label for="checkOutDate" class="form-label">Check-out Date</label>
+                  <input type="date" class="form-control" id="checkOutDate" required>
+                </div>
+              </div>
+              <div class="row">
+                 <div class="col-md-6 mb-3">
+                    <label for="adults" class="form-label">Adults</label>
+                    <input type="number" class="form-control" id="adults" value="1" min="1" required>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="children" class="form-label">Children</label>
+                    <input type="number" class="form-control" id="children" value="0" min="0" required>
+                </div>
+              </div>
+               <div class="mb-3">
+                  <label for="fullName" class="form-label">Full Name</label>
+                  <input type="text" class="form-control" id="fullName" required>
+                </div>
+                 <div class="mb-3">
+                  <label for="contactEmail" class="form-label">Email Address</label>
+                  <input type="email" class="form-control" id="contactEmail" required>
+                </div>
+              <button type="submit" class="btn btn-primary w-100">Submit Booking Request</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterCheckboxes = document.querySelectorAll('.filter-checkbox');
+            const accommodationLinks = document.querySelectorAll('.accommodation-link');
+            const noResultsMessage = document.getElementById('no-results');
+
+            function filterAccommodations() {
+                const selectedDistricts = Array.from(document.querySelectorAll('input[id$="-district"]:checked')).map(cb => cb.value);
+                const selectedTypes = Array.from(document.querySelectorAll('input[id$="-type"]:checked')).map(cb => cb.value);
+                
+                let visibleCount = 0;
+
+                accommodationLinks.forEach(link => {
+                    const card = link.querySelector('.accommodation-card');
+                    const cardDistrict = card.getAttribute('data-district');
+                    const cardType = card.getAttribute('data-type');
+                    
+                    const districtMatch = selectedDistricts.length === 0 || selectedDistricts.includes(cardDistrict);
+                    const typeMatch = selectedTypes.length === 0 || selectedTypes.includes(cardType);
+
+                    if (districtMatch && typeMatch) {
+                        link.style.display = 'block';
+                        visibleCount++;
+                    } else {
+                        link.style.display = 'none';
+                    }
+                });
+
+                noResultsMessage.style.display = visibleCount === 0 ? 'block' : 'none';
+            }
+
+            filterCheckboxes.forEach(checkbox => {
+                checkbox.addEventListener('change', filterAccommodations);
+            });
+
+            // --- Booking Modal Logic ---
+            const bookingModal = document.getElementById('bookingModal');
+            if (bookingModal) {
+                const modalHotelName = document.getElementById('modalHotelName');
+                const hotelNameInput = document.getElementById('hotelNameInput');
+
+                bookingModal.addEventListener('show.bs.modal', function (event) {
+                    const button = event.relatedTarget;
+                    const hotelName = button.getAttribute('data-hotel-name');
+                    
+                    modalHotelName.textContent = hotelName;
+                    hotelNameInput.value = hotelName;
+                });
+
+                const bookingForm = document.getElementById('booking-form');
+                bookingForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    alert(`Booking request for ${hotelNameInput.value} has been sent! (Frontend Demo)`);
+                    const modalInstance = bootstrap.Modal.getInstance(bookingModal);
+                    modalInstance.hide();
+                    bookingForm.reset();
+                });
+            }
+        });
+    </script>
+</body>
+</html>
+
